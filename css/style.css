@@ -1,0 +1,307 @@
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+span {
+  color: rgb(14, 128, 114);
+}
+
+section.head .header a {
+  text-decoration: none;
+  color: white;
+}
+
+section.head .header h1 {
+  font-size: 100px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  padding: 120px;
+}
+
+section.head .header {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+section.content {
+  margin: 60px 100px;
+}
+
+section.content .news_header {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+section.content .animations_news img {
+  height: 200px;
+  width: 264px;
+}
+
+section.content .contect_news {
+  background-color: rgb(241, 241, 241);
+  padding: 20px 20px 0px 20px;
+}
+
+section.content .contect_news #btn{
+  text-decoration: none;
+  color: rgb(14, 128, 114);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+section.content .contect_news a:hover {
+  color: black;
+}
+
+section.content .contect_news h3 {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: black;
+  font-weight: 700;
+  color: rgb(14, 128, 114);
+}
+
+section.content .contect_news p {
+  font-size: 16px;
+  color: black;
+  text-align: justify;
+}
+
+section.content .animations_news video {
+  height: 200px;
+  width: 264px;
+  margin-top: -25px;
+}
+
+section.content .animations_news audio {
+  padding-top: 80px;
+}
+
+section.content .menu ul li {
+  list-style: none;
+}
+
+.col-lg-3 {
+  background-color: black;
+}
+
+section.content .menu {
+  padding: 20px 10px;
+}
+
+section.content .menu ul li a {
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+section.content .menu ul li {
+  padding: 6px 0px;
+  text-align: right;
+}
+
+section.content .menu ul li a:hover {
+  text-decoration: none;
+  color: rgb(14, 128, 114);
+  transition: 0.5s;
+}
+
+section.footer {
+  background-color: black;
+  width: 100%;
+}
+
+section.footer .nav a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  border-right: 1.5px solid white;
+  padding: 10px;
+  align-items: center;
+}
+
+section.footer .nav a:nth-child(6) {
+  border: none;
+}
+
+section.footer .nav {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+section.footer .nav a:hover {
+  text-decoration: none;
+  font-size: 18px;
+  color: rgb(14, 128, 114);
+  transition: 0.5s;
+}
+
+section.footer .copyright {
+  background-color: rgb(12, 128, 114);
+  padding: 3px;
+}
+
+section.footer .copyright p {
+  text-align: center;
+  font-size: 14px;
+  padding: 3px;
+}
+
+section.content .photoAbout img {
+  height: 200px;
+  width: 264px;
+  float: right;
+  margin: 15px;
+}
+
+section.content .infoWN h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  color: black;
+  margin: 15px 0px 20px 0px;
+  text-align: center;
+  font-weight: 700;
+}
+
+section.content .infoWN span {
+  color: rgb(14, 128, 114);
+}
+
+section.content .infoWN {
+  background-color: rgb(241, 241, 241);
+  padding: 20px;
+}
+
+section.content .informationSite {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+section.content .infoWN p {
+  font-size: 18px;
+  padding-left: 5px;
+  color: black;
+  text-align: justify;
+}
+
+section.content .videoWN {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+}
+
+section.content .videoWN video {
+  height: 280px;
+  width: 450px;
+  margin-top: -20px;
+  margin-bottom: 25px;
+}
+
+section.content .table {
+  font-size: 14;
+  text-align: center;
+  background-color: rgb(241, 241, 241);
+  color: black;
+}
+
+th::first-letter {
+  color: rgb(14, 128, 114);
+}
+
+section.content .question h3 {
+  text-transform: uppercase;
+  font-size: 30px;
+  margin: 15px 0px 20px 0px;
+  text-align: center;
+  font-weight: 700;
+}
+
+section.content .table td {
+  font-size: 15px;
+}
+
+section.content .table th {
+  font-size: 18px;
+}
+
+section.content .table thead th {
+    vertical-align: middle;
+    border-bottom: 3px solid white;
+}
+
+section.content .table td, .table th {
+    padding: .85rem;
+    vertical-align: middle;
+    border-top: 2px solid white;
+}
+
+section.content .question .layer {
+  background-color: red;
+  z-index: 1;
+}
+
+section.content .menu {
+  position: relative;
+}
+
+section.content .main_menu_li .second_menu {
+  width: 100%;
+  left: 0;
+  max-height: 0;
+  background-color: black;
+  overflow: hidden;
+  transition: 0.5s;
+  padding: 0;
+}
+
+section.content .main_menu_li:hover .second_menu {
+  max-height: 500px;
+  transition: 1.5s;
+}
+
+section.content .contect_news #more1, #more2, #more3 {
+  display: none;
+}
+
+section.content .btn {
+  color: rgb(14,128,114);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 3px;
+  vertical-align: baseline;
+}
+
+section.content .more {
+  color: black;
+  font-size: 16px;
+}
+
+p{
+  text-indent: 30px;
+}
+
+.showHide {
+  display: none;
+}
+
+.more span {
+  display: inline;
+}
