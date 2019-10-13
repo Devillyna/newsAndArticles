@@ -22,6 +22,7 @@ export class ArticlesManager {
   edit({ id, title, content }) {
     const index = this.articles.findIndex(value => value.id === id);
     this.articles[index] = {
+      id,
       title,
       content
     };
@@ -74,7 +75,7 @@ export class ArticlesManager {
       editButton.classList.add('edit');
       editButton.innerHTML = `<i class="fas fa-edit"></i>`;
       editButton.addEventListener('click', async _ => {
-        const newArticle = await this.articleGenerator();
+        const newArticle = await this.articleGenerator({ title, content });
 
         this.edit({ id, ...newArticle });
         this.draw();

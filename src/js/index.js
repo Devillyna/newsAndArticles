@@ -21,7 +21,7 @@ const articleManager = new ArticlesManager(
 
 articleManager.setIdGenerator(_ => Date.now());
 
-function articleGenerator() {
+function articleGenerator({ title = null, content = null } = {}) {
   return new Promise(async (resolve, reject) => {
     let modalElement = document.getElementsByTagName('modal-component')[0];
 
@@ -34,8 +34,15 @@ function articleGenerator() {
       const titleInput = document.createElement('input');
       titleInput.placeholder = 'text';
       titleInput.type = 'text';
+      titleInput.value = title;
+
       const textInput = document.createElement('div');
       textInput.contentEditable = true;
+
+      if (content) {
+        textInput.innerText = content.text;
+      }
+
       const fileInput = document.createElement('input');
       fileInput.type = 'file';
       fileInput.accept = 'image/png, image/jpeg, audio/mp3, video/mp4';
@@ -48,8 +55,11 @@ function articleGenerator() {
         const text = textInput.innerText.trim();
 
         const file = fileInput.files[0];
-        const media = file && (await readFile(file));
-        const type = file && fileInput.files[0].type.split('/').shift();
+        const media = file ? await readFile(file) : content && content.media;
+
+        const type = file
+          ? fileInput.files[0].type.split('/').shift()
+          : content && content.type;
 
         if (title !== '' && text !== '') {
           titleInput.value = '';
