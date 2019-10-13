@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 span {
@@ -49,7 +49,7 @@ section.content .contect_news {
   padding: 20px 20px 0px 20px;
 }
 
-section.content .contect_news #btn{
+section.content .contect_news #btn {
   text-decoration: none;
   color: rgb(14, 128, 114);
   font-weight: 700;
@@ -243,14 +243,15 @@ section.content .table th {
 }
 
 section.content .table thead th {
-    vertical-align: middle;
-    border-bottom: 3px solid white;
+  vertical-align: middle;
+  border-bottom: 3px solid white;
 }
 
-section.content .table td, .table th {
-    padding: .85rem;
-    vertical-align: middle;
-    border-top: 2px solid white;
+section.content .table td,
+.table th {
+  padding: 0.85rem;
+  vertical-align: middle;
+  border-top: 2px solid white;
 }
 
 section.content .question .layer {
@@ -277,12 +278,14 @@ section.content .main_menu_li:hover .second_menu {
   transition: 1.5s;
 }
 
-section.content .contect_news #more1, #more2, #more3 {
+section.content .contect_news #more1,
+#more2,
+#more3 {
   display: none;
 }
 
 section.content .btn {
-  color: rgb(14,128,114);
+  color: rgb(14, 128, 114);
   font-size: 18px;
   font-weight: 700;
   padding: 0 3px;
@@ -294,7 +297,7 @@ section.content .more {
   font-size: 16px;
 }
 
-p{
+p {
   text-indent: 30px;
 }
 
