@@ -16,3 +16,31 @@
   transform: scale(1.02);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
+.delete,
+.edit {
+  width: 30px;
+  height: 30px;
+  top: 0;
+  position: absolute;
+  background-color: #fff;
+  border: none;
+  color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.delete {
+  right: 0;
+}
+
+.edit {
+  right: 30px;
+}
+
+.delete:hover {
+  color: tomato;
+}
+
+.edit:hover {
+  color: cornflowerblue;
+}

@@ -27,6 +27,12 @@ export class ArticlesManager {
     };
   }
 
+  delete(id) {
+    const index = this.articles.findIndex(value => value.id === id);
+
+    this.articles.splice(index, 1);
+  }
+
   setArticleGenerator(func) {
     this.articleGenerator = func;
   }
@@ -40,6 +46,7 @@ export class ArticlesManager {
 
     addArticleButton.addEventListener('click', async _ => {
       const newArticle = await this.articleGenerator();
+
       this.add(newArticle);
       this.draw();
     });
@@ -51,17 +58,30 @@ export class ArticlesManager {
       newArticle.setAttribute('id', id);
       newArticle.setAttribute('title', title);
       newArticle.setAttribute('text', content.text);
-
-      let media = null;
-
-      if (typeof content.media === 'string') {
-        media = content.media;
-      } else {
-      }
-
-      newArticle.setAttribute('media', media);
+      newArticle.setAttribute('media', content.media);
       newArticle.setAttribute('type', content.type);
       newArticle.setAttribute('wrapped', '');
+
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('delete');
+      deleteButton.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+      deleteButton.addEventListener('click', _ => {
+        this.delete(id);
+        this.draw();
+      });
+
+      const editButton = document.createElement('button');
+      editButton.classList.add('edit');
+      editButton.innerHTML = `<i class="fas fa-edit"></i>`;
+      editButton.addEventListener('click', async _ => {
+        const newArticle = await this.articleGenerator();
+
+        this.edit({ id, ...newArticle });
+        this.draw();
+      });
+
+      newArticle.append(deleteButton);
+      newArticle.append(editButton);
 
       this.root.append(newArticle);
     });
