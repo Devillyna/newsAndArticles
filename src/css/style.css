@@ -305,6 +305,21 @@ p {
   display: none;
 }
 
+/* more */
+
 .more span {
   display: inline;
+}
+
+/* modal */
+
+.modal-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-inner > * {
+  border: none;
+  
 }

@@ -38,11 +38,10 @@ export class ArticlesManager {
     addArticleButton.innerHTML = '+';
     addArticleButton.classList.add('add');
 
-    addArticleButton.addEventListener('click', _ => {
-      this.articleGenerator().then(article => {
-        this.add(article);
-        this.draw();
-      });
+    addArticleButton.addEventListener('click', async _ => {
+      const newArticle = await this.articleGenerator();
+      this.add(newArticle);
+      this.draw();
     });
 
     this.root.append(addArticleButton);
