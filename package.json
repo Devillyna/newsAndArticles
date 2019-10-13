@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "watch": "webpack --watch",
+    "watch": "webpack --watch ",
     "start": "webpack-dev-server --open"
   },
   "repository": {
@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/Devillyna/newsAndArticles#readme",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
