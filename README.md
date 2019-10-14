@@ -6,6 +6,8 @@
 
 clone repositories on your computer
 
+## run
+
 ### npm i
 
 install all dependencies
