@@ -12,4 +12,4 @@ install all dependencies
 
 ### npm start
 
-start [localhost](localhost:8080)
+start [localhost](http://localhost:8080)
