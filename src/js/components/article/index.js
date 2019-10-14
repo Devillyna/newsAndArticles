@@ -96,7 +96,9 @@ export class Article extends HTMLElement {
     if (this.text.length > 255) {
       if (this.wrapped) {
         textElement.innerHTML =
-          this.text.length > 255 ? this.text.substr(0, 255).trim() + '... ' : this.text;
+          this.text.length > 255
+            ? this.text.substr(0, 255).trim() + '... '
+            : this.text;
       } else {
         textElement.innerHTML = this.text;
       }

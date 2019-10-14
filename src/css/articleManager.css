@@ -44,3 +44,9 @@
 .edit:hover {
   color: cornflowerblue;
 }
+
+div[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  opacity: 0.7;
+}
