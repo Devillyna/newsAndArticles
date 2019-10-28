@@ -49,6 +49,7 @@ function articleGenerator({ title = null, content = null } = {}) {
     textInput.contentEditable = true;
     textInput.setAttribute('placeholder', 'text');
 
+    //если в контент есть значения (статья заполнена), то они выводятся в полям формочки
     if (content) {
       textInput.innerHTML = content.text;
     }
@@ -60,17 +61,16 @@ function articleGenerator({ title = null, content = null } = {}) {
     const acceptButton = document.createElement('button');
     acceptButton.innerHTML = 'send';
 
-    acceptButton.addEventListener('click', async _ => {
+    acceptButton.addEventListener('click', async () => {
       const title = titleInput.innerText.trim();
       const text = textInput.innerHTML;
 
       const file = fileInput.files[0];
+      //если при редктировании указывается новый файл - записываем его, если нет - берем старый
       const media = file ? await readFile(file) : content && content.media;
-
-      const type = file
-        ? file.type.split('/').shift()
-        : content && content.type;
-
+      //определение типа файла и перезаписывание
+      const type = file ? file.type.split('/')[0] : content && content.type;
+      //проверка на пустое поле
       if (title !== '' && textInput.innerText.trim() !== '') {
         modalElement.remove();
 
@@ -89,9 +89,11 @@ function articleGenerator({ title = null, content = null } = {}) {
   });
 }
 
+//передача функции, которая генерирует статьи
 articleManager.setArticleGenerator(articleGenerator);
 
+//определение элементов, которые были созданы Лешей
 customElements.define('article-component', Article);
 customElements.define('modal-component', Modal);
-
+//отрисовка всех статей
 articleManager.draw();

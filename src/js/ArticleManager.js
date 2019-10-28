@@ -12,7 +12,7 @@ export class ArticlesManager {
   }
 
   add({ title, content }) {
-    this.articles.unshift({
+    this.articles.unshift({ //добавляет в начало массива
       id: this.idGenerator(),
       title,
       content
@@ -31,7 +31,8 @@ export class ArticlesManager {
   delete(id) {
     const index = this.articles.findIndex(value => value.id === id);
 
-    this.articles.splice(index, 1);
+    // удаляет 1 элемент начиная с индекса index
+    this.articles.splice(index, 1); 
   }
 
   setArticleGenerator(func) {
@@ -45,7 +46,9 @@ export class ArticlesManager {
     addArticleButton.innerHTML = '+';
     addArticleButton.classList.add('add');
 
-    addArticleButton.addEventListener('click', async _ => {
+    addArticleButton.addEventListener('click', async () => {
+      //Когда открывается форма создания или редактирования статьи, ожидаем нажатия кнопки send 
+      //(завершение созданий / редактирования статьи)
       const newArticle = await this.articleGenerator();
 
       this.add(newArticle);
@@ -55,6 +58,7 @@ export class ArticlesManager {
     this.root.append(addArticleButton);
 
     this.articles.forEach(({ id, title, content }) => {
+
       const newArticle = document.createElement(this.tagName);
       newArticle.setAttribute('id', id);
       newArticle.setAttribute('title', title);
@@ -66,7 +70,7 @@ export class ArticlesManager {
       const deleteButton = document.createElement('button');
       deleteButton.classList.add('delete');
       deleteButton.innerHTML = `<i class="fas fa-trash-alt"></i>`;
-      deleteButton.addEventListener('click', _ => {
+      deleteButton.addEventListener('click', () => {
         this.delete(id);
         this.draw();
       });
@@ -74,7 +78,7 @@ export class ArticlesManager {
       const editButton = document.createElement('button');
       editButton.classList.add('edit');
       editButton.innerHTML = `<i class="fas fa-edit"></i>`;
-      editButton.addEventListener('click', async _ => {
+      editButton.addEventListener('click', async () => {
         const newArticle = await this.articleGenerator({ title, content });
 
         this.edit({ id, ...newArticle });
