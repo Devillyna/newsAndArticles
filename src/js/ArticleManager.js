@@ -3,8 +3,8 @@ import '../css/articleManager.css';
 export class ArticlesManager {
   constructor(articles, tagName, rootNode) {
     this.articles = articles;
-    this.root = rootNode;
     this.tagName = tagName;
+    this.root = rootNode;
   }
 
   setIdGenerator(func) {
@@ -12,14 +12,15 @@ export class ArticlesManager {
   }
 
   add({ title, content }) {
-    this.articles.unshift({ //добавляет в начало массива
+    this.articles.unshift({
+      //добавляет в начало массива
       id: this.idGenerator(),
       title,
       content
     });
   }
 
-  edit({ id, title, content }) {
+  edit(id, { title, content }) {
     const index = this.articles.findIndex(value => value.id === id);
     this.articles[index] = {
       id,
@@ -32,7 +33,7 @@ export class ArticlesManager {
     const index = this.articles.findIndex(value => value.id === id);
 
     // удаляет 1 элемент начиная с индекса index
-    this.articles.splice(index, 1); 
+    this.articles.splice(index, 1);
   }
 
   setArticleGenerator(func) {
@@ -47,7 +48,7 @@ export class ArticlesManager {
     addArticleButton.classList.add('add');
 
     addArticleButton.addEventListener('click', async () => {
-      //Когда открывается форма создания или редактирования статьи, ожидаем нажатия кнопки send 
+      //Когда открывается форма создания или редактирования статьи, ожидаем нажатия кнопки send
       //(завершение созданий / редактирования статьи)
       const newArticle = await this.articleGenerator();
 
@@ -58,7 +59,6 @@ export class ArticlesManager {
     this.root.append(addArticleButton);
 
     this.articles.forEach(({ id, title, content }) => {
-
       const newArticle = document.createElement(this.tagName);
       newArticle.setAttribute('id', id);
       newArticle.setAttribute('title', title);
@@ -81,7 +81,7 @@ export class ArticlesManager {
       editButton.addEventListener('click', async () => {
         const newArticle = await this.articleGenerator({ title, content });
 
-        this.edit({ id, ...newArticle });
+        this.edit(id, newArticle);
         this.draw();
       });
 

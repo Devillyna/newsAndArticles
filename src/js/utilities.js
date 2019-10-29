@@ -8,7 +8,7 @@ export const readFile = file =>
   new Promise(resolve => {
     const reader = new FileReader();
 
-    reader.addEventListener('load', _ => {
+    reader.addEventListener('load', () => {
       resolve(reader.result);
     });
 

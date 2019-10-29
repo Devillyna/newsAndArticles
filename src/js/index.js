@@ -27,7 +27,7 @@ function articleGenerator({ title = null, content = null } = {}) {
   // - если в функцию вместо объекта будет передано свойство undefined, он станет пустым объектом
   // - если в объекте одно из указанных свойств будет равно undefined, они станут равны null
 
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     // в конструктор объекта "Обещание" передаются его методы resolve и reject
     // он нужен для асинхронных событий т.е. тех, которые выполнятся не сразу
     // при вызове функции resolve Promise переходит в состояние "исполненно"

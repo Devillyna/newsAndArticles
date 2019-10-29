@@ -3,6 +3,7 @@ import { stringToHTML } from '../../utilities';
 
 export class Article extends HTMLElement {
   constructor() {
+    // вызываю родительский конструктор
     super();
 
     this.attachShadow({ mode: 'open' });
@@ -29,21 +30,25 @@ export class Article extends HTMLElement {
   }
 
   get wrapped() {
+    // если аттрибут отсутствует, то он равен null
+    // если аттрубут есть, то он НЕ равен null
     return this.getAttribute('wrapped') !== null;
   }
 
   set wrapped(value) {
-    if (!!value) {
+    if (!!value /*если value истинно(true)*/) {
       this.setAttribute('wrapped', '');
     } else {
       this.removeAttribute('wrapped');
     }
   }
 
+  // когда компонент(тэг) встраивается в документ(отрисовывается на экране)
   connectedCallback() {
     this.update();
   }
 
+  // описываю название аттрибута, изменения которого хочу отследить
   static get observedAttributes() {
     return ['wrapped'];
   }
@@ -61,6 +66,7 @@ export class Article extends HTMLElement {
   }
 
   update() {
+    // Перевожу строку с HTML в дерево с объектами(тэгами)
     this.template = stringToHTML(article).content;
 
     const newMedia =
@@ -74,8 +80,6 @@ export class Article extends HTMLElement {
 
     if (newMedia) {
       const mediaElement = this.template.querySelector('.media');
-
-      mediaElement.innerHTML = '';
 
       if (this.type === 'image') {
         newMedia.setAttribute('src', this.media);
@@ -93,27 +97,23 @@ export class Article extends HTMLElement {
 
     const textElement = this.template.querySelector('.text');
 
-    if (this.text.length > 255) {
-      if (this.wrapped) {
-        textElement.innerHTML =
-          this.text.length > 255
-            ? this.text.substr(0, 255).trim() + '... '
-            : this.text;
-      } else {
-        textElement.innerHTML = this.text;
-      }
-
-      const button = document.createElement('a');
-      button.innerHTML = this.wrapped ? ' see more' : ' collapse';
-      button.classList.add('link');
-      button.addEventListener('click', _ => {
-        this.wrapped = !this.wrapped;
-      });
-
-      textElement.append(button);
+    if (this.wrapped) {
+      textElement.innerHTML =
+        this.text.length > 255
+          ? this.text.substr(0, 255).trim() + '... '
+          : this.text;
     } else {
       textElement.innerHTML = this.text;
     }
+
+    const button = document.createElement('a');
+    button.innerHTML = this.wrapped ? ' see more' : ' collapse';
+    button.classList.add('link');
+    button.addEventListener('click', _ => {
+      this.wrapped = !this.wrapped;
+    });
+
+    textElement.append(button);
 
     this.shadowRoot.innerHTML = '';
 
