@@ -1,7 +1,10 @@
 class Penguin {
-  constructor(startX, startY, step, fieldWidth, fieldHeight) {
+  constructor(startX, startY, sizeX, sizeY, step, fieldWidth, fieldHeight) {
     this.currentX = startX;
     this.currentY = startY;
+
+    this.sizeX = sizeX;
+    this.sizeY = sizeY;
 
     this.step = step;
 
@@ -16,16 +19,23 @@ class Penguin {
     this.generateEnd();
   }
 
+  _getHalfSize(size) {
+    return size / 2;
+  }
+
   generateEnd() {
+    const x = Math.random() * (this.fieldWidth - this.sizeX);
+    const y = Math.random() * (this.fieldHeight - this.sizeY);
+
     this.setEnd(
-      Math.random() * this.fieldWidth,
-      Math.random() * this.fieldHeight
+      x + this._getHalfSize(this.sizeX),
+      y + this._getHalfSize(this.sizeY)
     );
   }
 
   setEnd(x, y) {
-    this.endX = x;
-    this.endY = y;
+    this.endX = x - this._getHalfSize(this.sizeX);
+    this.endY = y - this._getHalfSize(this.sizeY);
     this.start();
   }
 
