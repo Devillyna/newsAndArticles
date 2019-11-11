@@ -22,11 +22,11 @@
 }
 
 .penguin {
-  width: 80px;
-  height: 80px;
+  width: 24px;
+  height: 40px;
   position: absolute;
   top: 0;
   left: 0;
   background-size: cover;
-  background-image: url(./img/penguin.png);
+  background-image: url(./img/таракан.png);
 }

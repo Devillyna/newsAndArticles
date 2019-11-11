@@ -22,7 +22,7 @@ function createPenguin(wrapper) {
 
       const { w, h } = getSize(wrapper);
 
-      const penguinController = new Penguin(0, 0, 80, 80, 3, w, h);
+      const penguinController = new Penguin(0, 0, 24, 40, 10, w, h);
 
       window.addEventListener("resize", event => {
         const { w, h } = getSize(wrapper);
@@ -59,7 +59,7 @@ function createPenguin(wrapper) {
 window.onload = () => {
   const wrapper = document.getElementById("penguinContainer");
 
-  for (let i = 0; i < 100; ++i) {
+  for (let i = 0; i < 1000; ++i) {
     createPenguin(wrapper).then(penguin => {
       wrapper.append(penguin);
     });

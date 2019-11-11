@@ -63,18 +63,18 @@ class Penguin {
 
     // Решение через подобие треугольников
 
-    const coefficient = this.step / hypotenuse;
+    // const coefficient = this.step / hypotenuse;
 
-    const newXCathetus = XCathetus * coefficient;
-    const newYCathetus = YCathetus * coefficient;
+    // const newXCathetus = XCathetus * coefficient;
+    // const newYCathetus = YCathetus * coefficient;
 
     // Решение через угол
 
-    // const sin = YCathetus / hypotenuse;
-    // const cos = XCathetus / hypotenuse;
+    const sin = YCathetus / hypotenuse;
+    const cos = XCathetus / hypotenuse;
 
-    // const newXCathetus = cos * this.step;
-    // const newYCathetus = sin * this.step;
+    const newXCathetus = cos * this.step;
+    const newYCathetus = sin * this.step;
 
     this.currentX += newXCathetus;
     this.currentY += newYCathetus;
