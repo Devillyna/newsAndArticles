@@ -16,6 +16,8 @@ class Penguin {
 
     this.finished = false;
 
+    this.angle = 0;
+
     this.generateEnd();
   }
 
@@ -72,6 +74,12 @@ class Penguin {
 
     const sin = YCathetus / hypotenuse;
     const cos = XCathetus / hypotenuse;
+
+    if (this.endX < this.currentX) {
+      this.angle = 180 - 180 - 90 - (sin * 180) / Math.PI;
+    } else {
+      this.angle = 90 + (sin * 180) / Math.PI;
+    }
 
     const newXCathetus = cos * this.step;
     const newYCathetus = sin * this.step;

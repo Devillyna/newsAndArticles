@@ -4,8 +4,8 @@ function getSize(element) {
   return { w: offsetWidth, h: offsetHeight };
 }
 
-function setPosition(element, x, y) {
-  element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+function setPosition(element, x, y, angle) {
+  element.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${angle}deg)`;
 }
 
 function getPosition(event) {
@@ -37,12 +37,13 @@ function createPenguin(wrapper) {
 
       const loop = () => {
         if (!penguinController.isFinished()) {
+          penguinController.next();
           setPosition(
             penguin,
             penguinController.currentX,
-            penguinController.currentY
+            penguinController.currentY,
+            penguinController.angle
           );
-          penguinController.next();
         } else {
           penguinController.generateEnd();
         }
@@ -59,7 +60,7 @@ function createPenguin(wrapper) {
 window.onload = () => {
   const wrapper = document.getElementById("penguinContainer");
 
-  for (let i = 0; i < 1000; ++i) {
+  for (let i = 0; i < 2000; ++i) {
     createPenguin(wrapper).then(penguin => {
       wrapper.append(penguin);
     });
