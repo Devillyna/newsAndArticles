@@ -13,7 +13,6 @@ export class ArticlesManager {
 
   add({ title, content }) {
     this.articles.unshift({
-      //добавляет в начало массива
       id: this.idGenerator(),
       title,
       content
@@ -32,7 +31,6 @@ export class ArticlesManager {
   delete(id) {
     const index = this.articles.findIndex(value => value.id === id);
 
-    // удаляет 1 элемент начиная с индекса index
     this.articles.splice(index, 1);
   }
 
@@ -48,10 +46,7 @@ export class ArticlesManager {
     addArticleButton.classList.add('add');
 
     addArticleButton.addEventListener('click', async () => {
-      //Когда открывается форма создания или редактирования статьи, ожидаем нажатия кнопки send
-      //(завершение созданий / редактирования статьи)
       const newArticle = await this.articleGenerator();
-
       this.add(newArticle);
       this.draw();
     });

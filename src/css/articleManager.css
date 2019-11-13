@@ -50,3 +50,7 @@ div[contenteditable="true"]:empty:before {
   display: block;
   opacity: 0.7;
 }
+
+.wrong {
+  border: 2px tomato solid;
+}
